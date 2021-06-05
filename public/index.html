@@ -5,19 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hello, Lit</title>
-    <script type="module" src="./build/pokeapi.js"></script>
+    <script type="module" src="./dist/pokeapi.js"></script>
     <style>
-        x-pokemon[name="Charmander"] {
-            background-color: orange;
-        }
-        
         x-pokemon[name="Pikachu"] {
             background-color: yellow;
         }
+        
+        x-pokemon[name="Charmander"] {
+            background-color: orange;
+        };
     </style>
 </head>
 <body>
-    <!-- <hello-lit name="Pablo"></hello-lit> -->
     <x-pokemon name="Charmander"></x-pokemon>
 </body>
 </html>

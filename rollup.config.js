@@ -1,3 +1,5 @@
+import copy from '@web/rollup-plugin-copy';
+import glob from 'rollup-plugin-glob-import';
 import gzip from 'rollup-plugin-gzip'
 import minifyHTML from 'rollup-plugin-minify-html-literals';
 import resolve from '@rollup/plugin-node-resolve';
@@ -5,7 +7,10 @@ import summary from 'rollup-plugin-summary';
 import {terser} from 'rollup-plugin-terser';
 
 export default {
-  input: 'build/hello-lit.js',
+  input: glob({
+    include: ['dist/**.js'],
+    exclude: ['dist/**.map.js'],
+  }),
   plugins: [
     // Resolve bare module specifiers to relative paths
     resolve(),
@@ -22,6 +27,7 @@ export default {
     gzip(),
     // Print bundle summary
     summary(),
+    copy(),
   ],
   output: {
     dir: 'dist',
